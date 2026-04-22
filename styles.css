@@ -54,6 +54,7 @@ body::before {
 .hero-proof,
 .hero-statline,
 .momentum-strip,
+.sample-actions,
 .use-case-grid,
 .workspace-grid,
 .metrics,
@@ -384,6 +385,24 @@ body::before {
   font-size: clamp(2.4rem, 4vw, 4.3rem);
 }
 
+.demo-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: linear-gradient(90deg, rgba(124, 242, 161, 0.1), rgba(255, 255, 255, 0.03));
+  color: var(--text);
+}
+
+.demo-banner span {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
 .use-case-card,
 .control-card,
 .report-card,
@@ -423,6 +442,11 @@ body::before {
   gap: 18px;
   position: sticky;
   top: 16px;
+}
+
+.sample-actions {
+  display: grid;
+  gap: 12px;
 }
 
 .control-group {
@@ -809,6 +833,7 @@ body::before {
   .hero-statline,
   .hero-proof,
   .momentum-strip,
+  .demo-banner,
   .use-case-grid,
   .workspace-grid,
   .metrics,

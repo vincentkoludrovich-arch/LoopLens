@@ -68,6 +68,84 @@ const state = {
   currentSignage: [],
   backendReachable: false,
   aiConfigured: false,
+  demoMode: false,
+};
+
+const sampleAnalyses = {
+  dining: {
+    title: "Dining hall contamination report",
+    status: "Showcase sample",
+    description:
+      "LoopLens identified food-soiled cardboard, coffee cups, and mixed beverage waste as the top contamination drivers in this dining hall sample.",
+    path: "Compost food-soiled fiber, recycle clean containers, route hazardous items separately",
+    risk: "High",
+    diversion: "+18%",
+    savings: "$1,240",
+    impactSummary:
+      "Dining areas usually produce the highest concentration of food-soiled packaging, which makes compost guidance and contamination prevention the fastest path to better recovery.",
+    actionSummary:
+      "Install compost-first signage near tray return, add drain-before-recycle messaging, and separate battery drop points from general waste stations.",
+    reasoningSummary:
+      "This sample combines dense student traffic, mixed takeout packaging, and heavy liquid residue, which typically drives confusion between landfill, compost, and recycling streams.",
+    confidenceSummary:
+      "Showcase sample - based on a representative campus dining scenario rather than a live API response.",
+    chartCaption:
+      "A focused intervention in one dining hall can materially improve recovery within the first month.",
+    scanSignal: "Sample workflow loaded",
+    scanConfidence: "Showcase mode",
+    mistakes: [
+      "Greasy pizza boxes are entering paper recycling.",
+      "Coffee cups and lids are being mixed into the wrong stream.",
+      "Half-full drink containers are contaminating nearby recyclables.",
+    ],
+    signage: [
+      "Food-soiled cardboard goes to compost where available.",
+      "Empty liquids before recycling bottles and cans.",
+      "Coffee cups do not belong in paper recycling.",
+    ],
+    bars: {
+      before: 34,
+      after: 56,
+      avoided: 29,
+    },
+  },
+  dorm: {
+    title: "Dorm lobby recovery report",
+    status: "Showcase sample",
+    description:
+      "LoopLens flagged batteries, snack packaging, and drink containers as the most common dorm-lobby sorting mistakes in this sample report.",
+    path: "Recycle beverage containers, isolate batteries, landfill contaminated packaging",
+    risk: "Medium",
+    diversion: "+12%",
+    savings: "$760",
+    impactSummary:
+      "Dorm lobbies benefit most from simpler instructions, hazardous item visibility, and clear separation between beverage recovery and general waste.",
+    actionSummary:
+      "Install a battery collection point, add resident-facing bin labels, and place bottle recovery signage at the main entrance and mail area.",
+    reasoningSummary:
+      "Dorms have lower food-soil volume than dining halls, but repeated confusion around late-night packaging and batteries creates preventable contamination.",
+    confidenceSummary:
+      "Showcase sample - based on a representative residential waste scenario rather than a live API response.",
+    chartCaption:
+      "Simple signage and hazardous-item separation can improve dorm recycling performance quickly.",
+    scanSignal: "Sample workflow loaded",
+    scanConfidence: "Showcase mode",
+    mistakes: [
+      "Loose batteries are dropped into general trash.",
+      "Students mix snack wrappers with bottles and cans.",
+      "Residents default to trash when bin labels are unclear.",
+    ],
+    signage: [
+      "Use the battery drop box for all loose batteries.",
+      "Recycle empty bottles and cans only.",
+      "When in doubt, do not contaminate the recycling stream.",
+    ],
+    bars: {
+      before: 41,
+      after: 55,
+      avoided: 21,
+    },
+  },
 };
 
 function updateVolumeReadout() {
@@ -172,6 +250,11 @@ function renderAnalysis(analysis) {
   renderSignage(analysis.signage, zoneLabel);
 }
 
+function loadSampleAnalysis(sampleKey) {
+  state.demoMode = true;
+  renderAnalysis(sampleAnalyses[sampleKey]);
+}
+
 function getPayload() {
   return {
     location: els.location.value,
@@ -210,13 +293,14 @@ async function checkBackendHealth() {
   if (window.location.protocol === "file:") {
     state.backendReachable = false;
     state.aiConfigured = false;
+    state.demoMode = true;
     setStatus(
-      "Local server required",
-      "Start backend",
-      "Run `npm start` in this project folder and open http://127.0.0.1:3000 to use the live AI analysis flow."
+      "Showcase mode active",
+      "Live AI optional",
+      "LoopLens can still be explored through guided sample reports when the live backend is unavailable."
     );
-    els.scanSignal.textContent = "Opened from file://";
-    els.scanConfidence.textContent = "Backend unavailable";
+    els.scanSignal.textContent = "Sample analysis available";
+    els.scanConfidence.textContent = "Showcase mode";
     return;
   }
 
@@ -227,52 +311,60 @@ async function checkBackendHealth() {
     state.aiConfigured = Boolean(data.aiConfigured);
 
     if (!state.aiConfigured) {
+      state.demoMode = true;
       setStatus(
-        "AI backend ready",
-        "Add API key",
-        "The local server is reachable. Set OPENAI_API_KEY before running live waste analysis."
+        "Showcase mode active",
+        "Live AI unavailable",
+        "The site is live, but backend AI analysis is currently unavailable. Guided sample reports remain available for visitors."
       );
       els.scanSignal.textContent = "Server connected";
-      els.scanConfidence.textContent = "API key missing";
+      els.scanConfidence.textContent = "Showcase mode";
     }
   } catch {
     state.backendReachable = false;
     state.aiConfigured = false;
+    state.demoMode = true;
     setStatus(
-      "Backend not reachable",
-      "Start server",
-      "Start the local server with `npm start`, then refresh this page to enable AI analysis."
+      "Showcase mode active",
+      "Backend offline",
+      "LoopLens is showing guided sample reports because live backend analysis is not currently available."
     );
-    els.scanSignal.textContent = "No local server detected";
-    els.scanConfidence.textContent = "Backend offline";
+    els.scanSignal.textContent = "Sample analysis available";
+    els.scanConfidence.textContent = "Showcase mode";
   }
 }
 
 async function runAnalysis() {
   if (window.location.protocol === "file:") {
+    state.demoMode = true;
     setStatus(
-      "Local server required",
-      "Start backend",
-      "Open this project through the local server at http://127.0.0.1:3000 so the page can call the AI backend."
+      "Showcase mode active",
+      "Live AI optional",
+      "This local file view supports guided sample reports. Open the hosted version or local backend to run live AI analysis."
     );
+    loadSampleAnalysis("dining");
     return;
   }
 
   if (!state.backendReachable) {
+    state.demoMode = true;
     setStatus(
-      "Backend not reachable",
-      "Start server",
-      "Start the local server with `npm start`, then refresh this page to use live AI analysis."
+      "Showcase mode active",
+      "Backend unavailable",
+      "The backend is not reachable right now, so LoopLens is falling back to guided sample reports."
     );
+    loadSampleAnalysis("dining");
     return;
   }
 
   if (!state.aiConfigured) {
+    state.demoMode = true;
     setStatus(
-      "API key required",
-      "Add OPENAI_API_KEY",
-      "Set OPENAI_API_KEY in your shell or environment before running live AI analysis."
+      "Showcase mode active",
+      "Live AI unavailable",
+      "Live AI analysis is temporarily unavailable, but the full product workflow can still be explored through sample reports."
     );
+    loadSampleAnalysis("dining");
     return;
   }
 
@@ -289,15 +381,29 @@ async function runAnalysis() {
 
   try {
     const analysis = await analyzeWithBackend();
+    state.demoMode = false;
     renderAnalysis(analysis);
   } catch (error) {
-    setStatus(
-      "Backend setup needed",
-      "Action required",
-      error.message
-    );
-    els.scanSignal.textContent = "AI backend unavailable";
-    els.scanConfidence.textContent = "Setup needed";
+    state.demoMode = true;
+    if (
+      error.message.includes("insufficient_quota") ||
+      error.message.includes("Incorrect API key") ||
+      error.message.includes("invalid_api_key")
+    ) {
+      setStatus(
+        "Showcase mode active",
+        "Live AI unavailable",
+        "Live AI analysis is temporarily unavailable, so LoopLens has switched to guided sample reports for the showcase."
+      );
+      loadSampleAnalysis("dining");
+    } else {
+      setStatus(
+        "Showcase mode active",
+        "Temporary fallback",
+        "LoopLens could not complete a live AI response, so a guided sample report has been loaded instead."
+      );
+      loadSampleAnalysis("dining");
+    }
   } finally {
     els.analyzeButton.disabled = false;
   }
@@ -326,6 +432,11 @@ function downloadSignage() {
 els.volume.addEventListener("input", updateVolumeReadout);
 els.analyzeButton.addEventListener("click", runAnalysis);
 els.downloadSignage.addEventListener("click", downloadSignage);
+document.querySelectorAll("[data-sample]").forEach((button) => {
+  button.addEventListener("click", () => {
+    loadSampleAnalysis(button.dataset.sample);
+  });
+});
 
 els.upload.addEventListener("change", async (event) => {
   const file = event.target.files[0];
