@@ -650,4 +650,4 @@ els.zoneMap.querySelectorAll(".zone-node").forEach((node) => {
 
 updateVolumeReadout();
 updateZoneMap(els.zone.value);
-runAnalysis();
+setTimeout(runAnalysis, 0);
