@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LoopLens | AI Recycling Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="topbar">
+        <div class="brand-lockup">
+          <span class="brand-mark">L</span>
+          <div>
+            <p class="brand-name">LoopLens</p>
+            <p class="brand-subtitle">AI recycling intelligence</p>
+          </div>
+        </div>
+        <div class="topbar-links">
+          <a href="#workspace">Platform</a>
+          <a href="#operations">Operations</a>
+          <a href="#impact">Impact</a>
+          <a href="#launch">Launch</a>
+        </div>
+      </section>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">LoopLens</p>
+          <h1>Make campus recycling finally work.</h1>
+          <p class="hero-tag">
+            LoopLens is a campus-first AI platform that identifies
+            contamination, guides better disposal decisions, and shows
+            sustainability teams exactly where waste systems are breaking down.
+          </p>
+          <p class="hero-note">
+            Built for campus sustainability and facilities teams that need
+            clearer sorting, lower contamination, and measurable recovery gains.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#workspace">Run Analysis</a>
+            <a class="button secondary" href="#launch">See Launch Plan</a>
+          </div>
+          <div class="hero-statline">
+            <div>
+              <strong>Built for dining halls and dorms</strong>
+              <span>Start where contamination happens fastest and behavior is hardest to change.</span>
+            </div>
+            <div>
+              <strong>One workflow that matters</strong>
+              <span>Detect waste correctly, guide the user, and improve diversion building by building.</span>
+            </div>
+          </div>
+          <div class="hero-proof">
+            <div>
+              <strong>Primary user</strong>
+              <span>Campus sustainability and facilities teams.</span>
+            </div>
+            <div>
+              <strong>Daily use</strong>
+              <span>Waste audits, signage decisions, hotspot detection, and recovery tracking.</span>
+            </div>
+            <div>
+              <strong>Expansion path</strong>
+              <span>From campuses to venues, office portfolios, and cities.</span>
+            </div>
+          </div>
+        </div>
+        <aside class="hero-panel">
+          <div class="hero-card glow">
+            <p class="mini-label">Live platform</p>
+            <h2>Operational intelligence for every waste touchpoint</h2>
+            <ul>
+              <li>Waste photo intake with image-informed classification signals</li>
+              <li>Campus-specific contamination guidance and disposal routing</li>
+              <li>Recommended signage and intervention plans for facilities teams</li>
+              <li>Recovery, savings, and landfill-avoidance reporting</li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+
+      <section class="momentum-strip">
+        <div class="momentum-card">
+          <span class="mini-label">Why it matters</span>
+          <strong>Recycling fails when feedback comes after the load is already ruined.</strong>
+        </div>
+        <div class="momentum-card">
+          <span class="mini-label">Best first market</span>
+          <strong>Universities with dining halls, dorms, stadiums, and student centers.</strong>
+        </div>
+        <div class="momentum-card">
+          <span class="mini-label">What people remember</span>
+          <strong>The platform that makes recycling usable instead of confusing.</strong>
+        </div>
+      </section>
+
+      <section class="section use-cases-section" id="operations">
+        <div class="section-header">
+          <p class="eyebrow">Who uses it</p>
+          <h2>Designed around real operators, not generic climate messaging</h2>
+        </div>
+        <div class="use-case-grid">
+          <article class="use-case-card">
+            <p class="mini-label">For campuses</p>
+            <h3>Improve dining hall and dorm sorting</h3>
+            <p>
+              Audit high-traffic waste stations, catch contamination early, and
+              retrain disposal behavior with clear campus-specific guidance.
+            </p>
+          </article>
+          <article class="use-case-card">
+            <p class="mini-label">For cities</p>
+            <h3>Support public recycling education</h3>
+            <p>
+              Use LoopLens at public bins, schools, and drop-off points to make
+              disposal rules easier to understand and harder to get wrong.
+            </p>
+          </article>
+          <article class="use-case-card">
+            <p class="mini-label">For venues</p>
+            <h3>Control contamination at peak volume</h3>
+            <p>
+              Identify the most common mistakes around concessions and exits,
+              then deploy targeted signage and staffing changes that reduce loss.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section workspace-section" id="workspace">
+        <div class="section-header">
+          <p class="eyebrow">Platform</p>
+          <h2>Analyze waste, guide action, measure results</h2>
+        </div>
+        <div class="workspace-grid">
+          <section class="control-card">
+            <div class="control-group">
+              <label for="location">Deployment setting</label>
+              <select id="location">
+                <option value="campus">University campus</option>
+                <option value="apartment">Apartment building</option>
+                <option value="office">Office tower</option>
+                <option value="venue">Concert venue</option>
+              </select>
+            </div>
+
+            <div class="control-group">
+              <label for="zone">Hotspot zone</label>
+              <select id="zone">
+                <option value="dining">Dining hall</option>
+                <option value="dorm">Dorm lobby</option>
+                <option value="student">Student center</option>
+                <option value="stadium">Stadium concourse</option>
+                <option value="office">Break room</option>
+              </select>
+            </div>
+
+            <div class="control-group">
+              <label for="item-type">Detected item</label>
+              <select id="item-type">
+                <option value="coffee cup">Coffee cup</option>
+                <option value="greasy pizza box">Greasy pizza box</option>
+                <option value="plastic bottle">Plastic bottle</option>
+                <option value="batteries">Batteries</option>
+                <option value="takeout container">Takeout container</option>
+                <option value="aluminum can">Aluminum can</option>
+              </select>
+            </div>
+
+            <div class="control-group">
+              <label for="material">Material profile</label>
+              <select id="material">
+                <option value="mixed">Mixed / uncertain</option>
+                <option value="paper">Paper fiber</option>
+                <option value="plastic">Plastic</option>
+                <option value="metal">Metal</option>
+                <option value="hazardous">Hazardous</option>
+                <option value="compostable">Compostable fiber</option>
+              </select>
+            </div>
+
+            <div class="control-group">
+              <label for="residue">Food or liquid residue</label>
+              <select id="residue">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+
+            <div class="control-group">
+              <label for="volume">Estimated weekly volume</label>
+              <input
+                id="volume"
+                type="range"
+                min="10"
+                max="200"
+                step="10"
+                value="60"
+              />
+              <div class="range-row">
+                <span>10 items</span>
+                <strong id="volume-readout">60 items/week</strong>
+                <span>200 items</span>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label for="upload">Upload a waste photo</label>
+              <label class="upload-dropzone" for="upload">
+                <input id="upload" type="file" accept="image/*" />
+                <span class="upload-title">Drop an image or browse</span>
+                <span class="upload-subtitle">
+                  LoopLens sends the uploaded image and waste context through
+                  the backend AI workflow to generate routing and intervention guidance.
+                </span>
+              </label>
+              <div class="image-preview" id="image-preview">
+                <span>No image selected yet</span>
+              </div>
+              <div class="scan-details" id="scan-details">
+                <div>
+                  <span class="scan-label">Image signal</span>
+                  <strong id="scan-signal">No photo analyzed</strong>
+                </div>
+                <div>
+                  <span class="scan-label">Confidence</span>
+                  <strong id="scan-confidence">--</strong>
+                </div>
+              </div>
+              <p class="backend-note">
+                AI analysis runs through the LoopLens backend using the uploaded
+                image, local waste conditions, and your selected deployment context.
+              </p>
+            </div>
+
+            <button class="button primary full" id="analyze-button">
+              Analyze with LoopLens
+            </button>
+          </section>
+
+          <section class="report-card">
+            <div class="report-header">
+              <div>
+                <p class="mini-label">AI report</p>
+                <h3 id="result-title">Ready for live analysis</h3>
+              </div>
+              <div class="status-pill" id="result-status">Awaiting input</div>
+            </div>
+
+            <p class="report-copy" id="result-description">
+              Configure your inputs to see how LoopLens classifies a waste item,
+              estimates contamination risk, and recommends an operational next
+              step for your location.
+            </p>
+
+            <div class="metrics">
+              <div class="metric-card">
+                <span class="metric-label">Correct disposal path</span>
+                <strong id="metric-path">Unknown</strong>
+              </div>
+              <div class="metric-card">
+                <span class="metric-label">Contamination risk</span>
+                <strong id="metric-risk">Unknown</strong>
+              </div>
+              <div class="metric-card">
+                <span class="metric-label">Potential diversion lift</span>
+                <strong id="metric-diversion">+0%</strong>
+              </div>
+              <div class="metric-card">
+                <span class="metric-label">Monthly savings</span>
+                <strong id="metric-savings">$0</strong>
+              </div>
+            </div>
+
+            <div class="analysis-grid">
+              <article class="insight-card">
+                <p class="mini-label">Why it matters</p>
+                <p id="impact-summary">
+                  LoopLens turns confusing disposal decisions into measurable
+                  sustainability gains.
+                </p>
+              </article>
+              <article class="insight-card">
+                <p class="mini-label">Recommended action</p>
+                <p id="action-summary">
+                  The report will suggest signage, routing, and operational
+                  changes based on your location and waste conditions.
+                </p>
+              </article>
+              <article class="insight-card">
+                <p class="mini-label">Reasoning</p>
+                <p id="reasoning-summary">
+                  LoopLens combines material type, residue level, location rules,
+                  and image signals to prioritize the most likely routing path.
+                </p>
+              </article>
+              <article class="insight-card">
+                <p class="mini-label">Confidence</p>
+                <p id="confidence-summary">
+                  Confidence will update once the classification workflow runs.
+                </p>
+              </article>
+            </div>
+
+            <div class="chart-card">
+              <div class="chart-header">
+                <p class="mini-label">Impact forecast</p>
+                <p id="chart-caption">Projected recovery across the next month</p>
+              </div>
+              <div class="bar-chart">
+                <div class="bar-group">
+                  <span>Before</span>
+                  <div class="bar-shell"><div class="bar before" id="bar-before"></div></div>
+                </div>
+                <div class="bar-group">
+                  <span>After</span>
+                  <div class="bar-shell"><div class="bar after" id="bar-after"></div></div>
+                </div>
+                <div class="bar-group">
+                  <span>Landfill avoided</span>
+                  <div class="bar-shell"><div class="bar avoided" id="bar-avoided"></div></div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="section operations-section">
+        <div class="section-header">
+          <p class="eyebrow">Operations dashboard</p>
+          <h2>Show teams where contamination is happening this week</h2>
+        </div>
+        <div class="ops-grid">
+          <article class="ops-card large">
+            <div class="ops-header">
+              <div>
+                <p class="mini-label">Top contamination mistakes</p>
+                <h3>Priority intervention list</h3>
+              </div>
+            </div>
+            <div class="mistake-list" id="mistake-list"></div>
+          </article>
+
+          <article class="ops-card">
+            <p class="mini-label">Hotspot map</p>
+            <h3>Campus recovery zones</h3>
+            <div class="zone-map" id="zone-map">
+              <button class="zone-node active">Dining hall</button>
+              <button class="zone-node">Dorm lobby</button>
+              <button class="zone-node">Student center</button>
+              <button class="zone-node">Stadium concourse</button>
+            </div>
+            <p class="ops-copy" id="zone-summary">
+              Dining halls usually produce the heaviest food-soiled packaging
+              and need the clearest compost-versus-recycling guidance.
+            </p>
+          </article>
+
+          <article class="ops-card">
+            <p class="mini-label">Recommended signage</p>
+            <h3>Print-ready messaging</h3>
+            <div class="signage-stack" id="signage-stack"></div>
+            <button class="button secondary full" id="download-signage">
+              Download bin labels
+            </button>
+          </article>
+        </div>
+      </section>
+
+      <section class="section case-study-section" id="impact">
+        <div class="section-header">
+          <p class="eyebrow">Case study</p>
+          <h2>What a real first win could look like</h2>
+        </div>
+        <div class="case-study-card">
+          <div class="case-study-copy">
+            <p class="mini-label">Sample campus result</p>
+            <h3>Student center dining zone</h3>
+            <p>
+              After identifying food-soiled fiber and drink contamination as the
+              biggest recurring mistakes, LoopLens recommended compost-first
+              signage, drain-before-recycle messaging, and a battery drop-off
+              point near the lobby.
+            </p>
+          </div>
+          <div class="case-study-stats">
+            <div>
+              <span>Contamination drop</span>
+              <strong>31%</strong>
+            </div>
+            <div>
+              <span>Diversion increase</span>
+              <strong>18%</strong>
+            </div>
+            <div>
+              <span>Estimated annual savings</span>
+              <strong>$12.4K</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <p class="eyebrow">Impact</p>
+          <h2>Built for the people who actually run sustainability</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span>01</span>
+            <h3>Climate-tech teams</h3>
+            <p>
+              Deliver practical circular-economy intelligence with visible AI
+              and measurable operational outcomes.
+            </p>
+          </article>
+          <article class="feature-card">
+            <span>02</span>
+            <h3>Real estate and operations</h3>
+            <p>
+              Give facilities and property leaders cleaner waste streams,
+              lower hauling loss, and clearer decisions.
+            </p>
+          </article>
+          <article class="feature-card">
+            <span>03</span>
+            <h3>Public sector and education</h3>
+            <p>
+              Help cities and campuses improve sorting behavior at scale while
+              proving progress with better reporting.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section pilot-section" id="launch">
+        <div class="section-header">
+          <p class="eyebrow">Launch</p>
+          <h2>A rollout path that feels real from day one</h2>
+        </div>
+        <div class="pilot-grid">
+          <article class="pilot-card">
+            <h3>Phase 1</h3>
+            <p>Start in one dorm, dining hall, office floor, or venue zone with repeated waste checks.</p>
+          </article>
+          <article class="pilot-card">
+            <h3>Phase 2</h3>
+            <p>
+              Add location-specific signage, recurring audits, and contamination
+              alerts for facilities and sustainability teams.
+            </p>
+          </article>
+          <article class="pilot-card">
+            <h3>Phase 3</h3>
+            <p>
+              Expand across portfolios, campuses, venues, and municipalities
+              with reporting, training, and resident guidance.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section final-note" id="final-note">
+        <div class="final-note-card">
+          <p class="eyebrow">Positioning</p>
+          <h2>Start narrow, prove results, then scale the system.</h2>
+          <p>
+            LoopLens is strongest when it begins with one urgent use case:
+            helping campuses reduce contamination in dining halls and dorms. The
+            same intelligence layer can then expand into venues, cities, and
+            building portfolios once the first operational win is proven.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
